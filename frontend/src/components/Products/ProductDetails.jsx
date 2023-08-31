@@ -152,10 +152,10 @@ const ProductDetails = ({ data }) => {
                 <p>{data.description}</p>
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice}`}>
-                    {data.discountPrice}$
+                    {data.discountPrice}Rs
                   </h4>
                   <h3 className={`${styles.price}`}>
-                    {data.originalPrice ? data.originalPrice + "$" : null}
+                    {data.originalPrice ? data.originalPrice + "Rs" : null}
                   </h3>
                 </div>
 
@@ -206,19 +206,19 @@ const ProductDetails = ({ data }) => {
                   </span>
                 </div>
                 <div className="flex items-center pt-8">
-                  <Link to={`/shop/preview/${data?.shop._id}`}>
+                  {/* <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
                       src={`${data?.shop?.avatar?.url}`}
                       alt=""
                       className="w-[50px] h-[50px] rounded-full mr-2"
                     />
-                  </Link>
+                  </Link> */}
                   <div className="pr-8">
-                    <Link to={`/shop/preview/${data?.shop._id}`}>
+                    {/* <Link to={`/shop/preview/${data?.shop._id}`}>
                       <h3 className={`${styles.shop_name} pb-1 pt-1`}>
                         {data.shop.name}
                       </h3>
-                    </Link>
+                    </Link> */}
                     <h5 className="pb-3 text-[15px]">
                       ({averageRating}/5) Ratings
                     </h5>

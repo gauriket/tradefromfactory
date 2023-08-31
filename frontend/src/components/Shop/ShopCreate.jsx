@@ -91,6 +91,26 @@ const ShopCreate = () => {
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700"
               >
+                Contact Person Name
+              </label>
+              <div className="mt-1">
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Phone Number
               </label>
               <div className="mt-1">
@@ -201,7 +221,7 @@ const ShopCreate = () => {
                 htmlFor="avatar"
                 className="block text-sm font-medium text-gray-700"
               ></label>
-              <div className="mt-2 flex items-center">
+              <div className="mt-2 flex flex-col items-center">
                 <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
                   {avatar ? (
                     <img
@@ -215,9 +235,9 @@ const ShopCreate = () => {
                 </span>
                 <label
                   htmlFor="file-input"
-                  className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                  className="ml-5 flex items-center justify-center my-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
                 >
-                  <span>Upload a file</span>
+                  <span>Upload Contact Person Photo</span>
                   <input
                     type="file"
                     name="avatar"
@@ -226,13 +246,43 @@ const ShopCreate = () => {
                     className="sr-only"
                   />
                 </label>
+                <div>
+                <label
+                  htmlFor="file-input"
+                  className="ml-5 flex items-center justify-center my-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                >
+                  <span>Upload Tax Registration Certificate</span>
+                  <input
+                    type="file"
+                    name="avatar"
+                    id="file-input"
+                    onChange={handleFileInputChange}
+                    className="sr-only"
+                  />
+                </label></div>
+
+
+                <div>
+                <label
+                  htmlFor="file-input"
+                  className="ml-5 flex items-center justify-center my-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                >
+                  <span>Upload Company Registration Certificate</span>
+                  <input
+                    type="file"
+                    name="avatar"
+                    id="file-input"
+                    onChange={handleFileInputChange}
+                    className="sr-only"
+                  />
+                </label></div>
               </div>
             </div>
 
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                className="group relative w-full h-[40px] flex justify-center my-2 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
               >
                 Submit
               </button>
