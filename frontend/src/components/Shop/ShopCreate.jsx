@@ -10,10 +10,13 @@ import { RxAvatar } from "react-icons/rx";
 const ShopCreate = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [contName, setContName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState();
   const [address, setAddress] = useState("");
   const [zipCode, setZipCode] = useState();
   const [avatar, setAvatar] = useState();
+  const [taxRegistration, setTaxRegistration] = useState();
+  const [companyRegistration, setCompanyRegistration] = useState();
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
@@ -23,9 +26,12 @@ const ShopCreate = () => {
     axios
       .post(`${server}/shop/create-shop`, {
         name,
+        contName,
         email,
         password,
         avatar,
+        taxRegistration,
+        companyRegistration,
         zipCode,
         address,
         phoneNumber,
@@ -33,9 +39,12 @@ const ShopCreate = () => {
       .then((res) => {
         toast.success(res.data.message);
         setName("");
+        setContName("");
         setEmail("");
         setPassword("");
         setAvatar();
+        setTaxRegistration();
+        setCompanyRegistration();
         setZipCode();
         setAddress("");
         setPhoneNumber();
@@ -45,12 +54,36 @@ const ShopCreate = () => {
       });
   };
 
-  const handleFileInputChange = (e) => {
+  const handleFileInputChangeA = (e) => {
     const reader = new FileReader();
 
     reader.onload = () => {
       if (reader.readyState === 2) {
         setAvatar(reader.result);
+      }
+    };
+
+    reader.readAsDataURL(e.target.files[0]);
+  };
+
+  const handleFileInputChangeT = (e) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setTaxRegistration(reader.result);
+      }
+    };
+
+    reader.readAsDataURL(e.target.files[0]);
+  };
+
+  const handleFileInputChangeC = (e) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setCompanyRegistration(reader.result);
       }
     };
 
@@ -95,12 +128,11 @@ const ShopCreate = () => {
               </label>
               <div className="mt-1">
                 <input
-                  type="email"
-                  name="email"
-                  autoComplete="email"
+                  type="name"
+                  name="contName"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={contName}
+                  onChange={(e) => setContName(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
               </div>
@@ -242,7 +274,7 @@ const ShopCreate = () => {
                     type="file"
                     name="avatar"
                     id="file-input"
-                    onChange={handleFileInputChange}
+                    onChange={handleFileInputChangeA}
                     className="sr-only"
                   />
                 </label>
@@ -254,9 +286,9 @@ const ShopCreate = () => {
                   <span>Upload Tax Registration Certificate</span>
                   <input
                     type="file"
-                    name="avatar"
+                    name="taxRegistration"
                     id="file-input"
-                    onChange={handleFileInputChange}
+                    onChange={handleFileInputChangeT}
                     className="sr-only"
                   />
                 </label></div>
@@ -270,9 +302,9 @@ const ShopCreate = () => {
                   <span>Upload Company Registration Certificate</span>
                   <input
                     type="file"
-                    name="avatar"
+                    name="companyRegistration"
                     id="file-input"
-                    onChange={handleFileInputChange}
+                    onChange={handleFileInputChangeC}
                     className="sr-only"
                   />
                 </label></div>

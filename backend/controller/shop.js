@@ -39,7 +39,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(seller);
 
-    const activationUrl = `http://localhost:3000/seller/activation/${activationToken}`;
+    const activationUrl = `https://tradefromfactory.vercel.app/seller/activation/${activationToken}`;
 
     try {
       await sendMail({
@@ -269,7 +269,7 @@ router.put(
 router.get(
   "/admin-all-sellers",
   isAuthenticated,
-  isAdmin("Admin"),
+  // isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
       const sellers = await Shop.find().sort({
@@ -289,7 +289,7 @@ router.get(
 router.delete(
   "/delete-seller/:id",
   isAuthenticated,
-  isAdmin("Admin"),
+  // isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
       const seller = await Shop.findById(req.params.id);

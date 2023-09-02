@@ -127,12 +127,12 @@ const ShopLogin = () => {
                 Submit
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full`}>
+            {/* <div className={`${styles.noramlFlex} w-full`}>
               <h4>Not have any account?</h4>
               <Link to="/shop-create" className="text-blue-600 pl-2">
                 Sign Up
               </Link>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>

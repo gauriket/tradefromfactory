@@ -3,6 +3,7 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 const jwt = require("jsonwebtoken");
 const User = require("../model/user");
 const Shop = require("../model/shop");
+// const Admin = require("../model/admin");
 
 exports.isAuthenticated = catchAsyncErrors(async(req,res,next) => {
     const {token} = req.cookies;
@@ -32,7 +33,6 @@ exports.isSeller = catchAsyncErrors(async(req,res,next) => {
     next();
 });
 
-
 exports.isAdmin = (...roles) => {
     return (req,res,next) => {
         if(!roles.includes(req.user.role)){
@@ -41,3 +41,30 @@ exports.isAdmin = (...roles) => {
         next();
     }
 }
+/*exports.isAdmin = (req, res, next) => {
+  const { admin_token } = req.cookies;
+
+  if (!admin_token) {
+    return next(new ErrorHandler('Please login to continue', 401));
+  }
+
+  jwt.verify(admin_token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+    if (err) {
+      return next(new ErrorHandler('Invalid token', 401));
+    }
+
+    // Assuming you have an Admin model
+    Admin.findById(decoded.id)
+      .then((admin) => {
+        if (!admin) {
+          return next(new ErrorHandler('Admin not found', 404));
+        }
+
+        req.admin = admin;
+        next();
+      })
+      .catch((error) => {
+        return next(new ErrorHandler(error.message, 500));
+      });
+  });
+};*/

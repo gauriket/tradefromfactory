@@ -90,13 +90,13 @@ router.delete(
   "/delete-shop-event/:id",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const event = await Event.findById(req.params.id);
+      const event = await Event.findByIdAndDelete(req.params.id);
 
-      if (!product) {
-        return next(new ErrorHandler("Product is not found with this id", 404));
+      if (!event) { // Change 'product' to 'event'
+        return next(new ErrorHandler("Event is not found with this id", 404)); // Correct the error message
       }    
 
-      for (let i = 0; 1 < product.images.length; i++) {
+      for (let i = 0; i < event.images.length; i++) { // Change 'product' to 'event'
         const result = await cloudinary.v2.uploader.destroy(
           event.images[i].public_id
         );
@@ -109,10 +109,11 @@ router.delete(
         message: "Event Deleted successfully!",
       });
     } catch (error) {
-      return next(new ErrorHandler(error, 400));
+      return next(new ErrorHandler(error.message, 400)); // Use error.message to capture the error message
     }
   })
 );
+
 
 // all events --- for admin
 router.get(

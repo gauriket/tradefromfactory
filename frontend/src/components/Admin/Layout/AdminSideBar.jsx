@@ -46,6 +46,22 @@ const AdminSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
+        <Link to="/shop-create" className="w-full flex items-center">
+          <GrWorkshop
+            size={30}
+            color={`${active === 3 ? "crimson" : "#555"}`}
+          />
+          <h5
+            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+              active === 3 ? "text-[crimson]" : "text-[#555]"
+            }`}
+          >
+            Create Seller
+          </h5>
+        </Link>
+      </div>
+
+      <div className="w-full flex items-center p-4">
         <Link to="/admin-sellers" className="w-full flex items-center">
           <GrWorkshop
             size={30}

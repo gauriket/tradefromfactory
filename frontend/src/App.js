@@ -16,6 +16,7 @@ import {
   ProductDetailsPage,
   ProfilePage,
   ShopCreatePage,
+  ShopInfo,
   SellerActivationPage,
   ShopLoginPage,
   OrderDetailsPage,
@@ -60,6 +61,7 @@ import axios from "axios";
 import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import AdminDashboardMain from "./components/Admin/AdminDashboardMain";
 
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
@@ -153,6 +155,7 @@ const App = () => {
         <Route path="/shop/preview/:id" element={<ShopPreviewPage />} />
         {/* shop Routes */}
         <Route path="/shop-create" element={<ShopCreatePage />} />
+        <Route path="/seller-info" element={<ShopInfo />} />
         <Route path="/shop-login" element={<ShopLoginPage />} />
         <Route
           path="/shop/:id"
@@ -260,60 +263,68 @@ const App = () => {
           }
         />
         {/* Admin Routes */}
+        {/* <Route
+          path="/admin"
+          element={
+            // <ProtectedAdminRoute>
+              <AdminDashboardMain />
+            // </ProtectedAdminRoute>
+          }
+        /> */}
         <Route
           path="/admin/dashboard"
           element={
-            <ProtectedAdminRoute>
+            // <ProtectedAdminRoute>
               <AdminDashboardPage />
-            </ProtectedAdminRoute>
+            // </ProtectedAdminRoute>
           }
         />
         <Route
           path="/admin-users"
           element={
-            <ProtectedAdminRoute>
+            // <ProtectedAdminRoute>
               <AdminDashboardUsers />
-            </ProtectedAdminRoute>
+            // </ProtectedAdminRoute>
           }
         />
         <Route
           path="/admin-sellers"
           element={
-            <ProtectedAdminRoute>
+            // <ProtectedAdminRoute>
               <AdminDashboardSellers />
-            </ProtectedAdminRoute>
+            // </ProtectedAdminRoute>
           }
         />
         <Route
           path="/admin-orders"
           element={
-            <ProtectedAdminRoute>
+            // <ProtectedAdminRoute>
               <AdminDashboardOrders />
-            </ProtectedAdminRoute>
+            // </ProtectedAdminRoute>
           }
         />
          <Route
           path="/admin-products"
           element={
-            <ProtectedAdminRoute>
+            // <ProtectedAdminRoute>
               <AdminDashboardProducts />
-            </ProtectedAdminRoute>
+            // </ProtectedAdminRoute>
           }
         />
          <Route
           path="/admin-events"
           element={
-            <ProtectedAdminRoute>
+            // <ProtectedAdminRoute>
               <AdminDashboardEvents />
-            </ProtectedAdminRoute>
+            // </ProtectedAdminRoute>
           }
         />
          <Route
           path="/admin-withdraw-request"
           element={
-            <ProtectedAdminRoute>
+            // <ProtectedAdminRoute>
               <AdminDashboardWithdraw />
-            </ProtectedAdminRoute>
+            // </ProtectedAdminRoute>
           }
         />
       </Routes>

@@ -538,10 +538,10 @@ const ChangePassword = () => {
 const Address = () => {
   const [open, setOpen] = useState(false);
   const [country, setCountry] = useState("");
-  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState();
   const [address1, setAddress1] = useState("");
-  const [address2, setAddress2] = useState("");
+  const [city, setCity] = useState("");
   const [addressType, setAddressType] = useState("");
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -567,18 +567,18 @@ const Address = () => {
       dispatch(
         updatUserAddress(
           country,
-          city,
+          state,
           address1,
-          address2,
+          city,
           zipCode,
           addressType
         )
       );
       setOpen(false);
       setCountry("");
-      setCity("");
+      setState("");
       setAddress1("");
-      setAddress2("");
+      setCity("");
       setZipCode(null);
       setAddressType("");
     }
@@ -633,16 +633,16 @@ const Address = () => {
                   </div>
 
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Choose your City</label>
+                    <label className="block pb-2">Choose your State</label>
                     <select
                       name=""
                       id=""
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
                       <option value="" className="block border pb-2">
-                        choose your city
+                        choose your state
                       </option>
                       {State &&
                         State.getStatesOfCountry(country).map((item) => (
@@ -668,13 +668,13 @@ const Address = () => {
                     />
                   </div>
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Address 2</label>
+                    <label className="block pb-2">City</label>
                     <input
                       type="address"
                       className={`${styles.input}`}
                       required
-                      value={address2}
-                      onChange={(e) => setAddress2(e.target.value)}
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
                     />
                   </div>
 

@@ -35,7 +35,7 @@ router.post("/create-user", async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `http://localhost:3000/activation/${activationToken}`;
+    const activationUrl = `https://tradefromfactory.vercel.app/activation/${activationToken}`;
 
     try {
       await sendMail({
@@ -367,7 +367,7 @@ router.get(
 router.get(
   "/admin-all-users",
   isAuthenticated,
-  isAdmin("Admin"),
+  // isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
       const users = await User.find().sort({
@@ -387,7 +387,7 @@ router.get(
 router.delete(
   "/delete-user/:id",
   isAuthenticated,
-  isAdmin("Admin"),
+  // isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
       const user = await User.findById(req.params.id);
