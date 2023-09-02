@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name":"tradefromfactory-e9hw",
+    "name":"tradefromfactory",
     "builds":[
         {"src":"server.js","use":"@vercel/node"}
     ],
