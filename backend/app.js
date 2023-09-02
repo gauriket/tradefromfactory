@@ -7,6 +7,7 @@ const cors = require("cors");
 
 app.use(cors({
   origin: 'https://tradefromfactory.vercel.app',
+  method: ["POST", "GET"],
   credentials: true
 }));
 
@@ -15,6 +16,12 @@ app.use(cookieParser());
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
 
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
