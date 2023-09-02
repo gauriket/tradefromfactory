@@ -1,5 +1,3 @@
-export const server = "https://tradefromfactory.vercel.app/api/v2";
-
-export const backend_url = "https://tradefromfactory.vercel.app/";
+export const server = "https://tradefromfactory-e9hw.vercel.app/api/v2";
 
 

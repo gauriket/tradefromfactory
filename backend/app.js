@@ -6,8 +6,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 app.use(cors({
-  origin: 'https://tradefromfactory.vercel.app',
-  methods:["POST","GET"],
+  origin: 'https://tradefromfactory-e9hw.vercel.app',
   credentials: true
 }));
 
