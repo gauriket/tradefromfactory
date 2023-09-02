@@ -25,6 +25,10 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
+app.get('/', (req, res) => {
+  // Your code to handle the root path goes here
+  res.send('Hello, World!'); // Example response
+});
 
 // create server
 const server = app.listen(process.env.PORT, () => {
