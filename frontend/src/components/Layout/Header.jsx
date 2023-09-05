@@ -214,7 +214,7 @@ const Header = ({ activeHeading }) => {
               onClick={() => setOpen(true)}
             />
           </div>
-          <div>
+          <div className="bg-[#FCB901] rounded-lg px-2 py-2">
             <Link to="/">
               <img
                 src="https://tradefromfactory.com/wp-content/uploads/2023/08/Trade-From-Factory-Logo.png"
